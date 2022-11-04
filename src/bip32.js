@@ -1,10 +1,10 @@
 import * as crypto from './crypto';
-import { testEcc } from './testecc';
+// import { testEcc } from './testecc';
 const bs58check = require('bs58check');
 const typeforce = require('typeforce');
 const wif = require('wif');
 export function BIP32Factory(ecc) {
-    testEcc(ecc);
+    // testEcc(ecc);
     const UINT256_TYPE = typeforce.BufferN(32);
     const NETWORK_TYPE = typeforce.compile({
         wif: typeforce.UInt8,
