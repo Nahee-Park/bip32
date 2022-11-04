@@ -1,9 +1,7 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-const RipeMd160 = require("ripemd160");
+import * as RipeMd160 from 'ripemd160';
 const createHash = require('create-hash');
 const createHmac = require('create-hmac');
-function hash160(buffer) {
+export function hash160(buffer) {
     const sha256Hash = createHash('sha256')
         .update(buffer)
         .digest();
@@ -23,10 +21,8 @@ function hash160(buffer) {
         }
     }
 }
-exports.hash160 = hash160;
-function hmacSHA512(key, data) {
+export function hmacSHA512(key, data) {
     return createHmac('sha512', key)
         .update(data)
         .digest();
 }
-exports.hmacSHA512 = hmacSHA512;

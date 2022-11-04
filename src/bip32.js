@@ -1,12 +1,10 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-const crypto = require("./crypto");
-const testecc_1 = require("./testecc");
+import * as crypto from './crypto';
+import { testEcc } from './testecc';
 const bs58check = require('bs58check');
 const typeforce = require('typeforce');
 const wif = require('wif');
-function BIP32Factory(ecc) {
-    testecc_1.testEcc(ecc);
+export function BIP32Factory(ecc) {
+    testEcc(ecc);
     const UINT256_TYPE = typeforce.BufferN(32);
     const NETWORK_TYPE = typeforce.compile({
         wif: typeforce.UInt8,
@@ -350,4 +348,3 @@ function BIP32Factory(ecc) {
         fromPrivateKey,
     };
 }
-exports.BIP32Factory = BIP32Factory;
