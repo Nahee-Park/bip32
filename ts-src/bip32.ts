@@ -1,5 +1,5 @@
 import * as crypto from './crypto';
-// import { testEcc } from './testecc';
+import { testEcc } from './testecc';
 const bs58check = require('bs58check');
 const typeforce = require('typeforce');
 const wif = require('wif');
@@ -89,7 +89,8 @@ export interface TinySecp256k1Interface {
 }
 
 export function BIP32Factory(ecc: TinySecp256k1Interface): BIP32API {
-  // testEcc(ecc);
+  console.log('ecc', ecc);
+  testEcc(ecc);
   const UINT256_TYPE = typeforce.BufferN(32);
   const NETWORK_TYPE = typeforce.compile({
     wif: typeforce.UInt8,
